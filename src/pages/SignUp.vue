@@ -7,7 +7,7 @@
       <form @submit.prevent="onSignUp">
           <q-input v-model="email" name="email" label="Email"/>
           <q-input v-model="password" type="password" name="password" label="Password" />
-          <q-input v-model="confirmPassword" type="password" name="confirmPassword" label="Confirm Password" />
+          <q-input v-model="confirm_password" type="password" name="confirmPassword" label="Confirm Password" />
           <small class="text-red">{{comparePasswords}}</small>
 
         <q-space/>
@@ -32,7 +32,7 @@ export default {
     return {
       email: '',
       password: '',
-      confirmPassword: ''
+      confirm_password: ''
     }
   },
 
@@ -40,17 +40,17 @@ export default {
     formIsValid () {
       return this.email !== '' &&
             this.password !== '' &&
-            this.confirmPassword !== ''
+            this.confirm_password !== ''
     },
 
     comparePasswords () {
-      return this.password !== this.confirmPassword ? 'Password Mismatch' : ''
+      return this.password !== this.confirm_password ? 'Password Mismatch' : ''
     }
   },
 
   methods: {
     onSignUp () {
-      this.$router.push("/profile")
+      const res = this.axios.post(process.env.Api + '/signup', this.form)
     }
   }
 
