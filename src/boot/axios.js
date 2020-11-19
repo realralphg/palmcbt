@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+import { LocalStorage } from 'quasar'
 
 export default async ({ Vue }) => {
   Vue.prototype.$axios = axios;
