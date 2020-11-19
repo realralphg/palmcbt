@@ -5,21 +5,23 @@
         <span class="shade text-white text-center text-h4 q-pa-md">PROJECT One</span>
       </div> -->
 
+      <VideoJs></VideoJs>
+
 
       <div class="col-xs-12 col-sm-5 col-md-5">
         <div class="q-pa-lg">
           <div class="text-primary text-h4 text-bold"> Eastern Palm University CBT</div>
           <section>
-            <p>Online assessment for admission of African Students into the 
+            <p>Online assessment for admission of African Students into the
               Eastern Palm University of Africa. <br><br> </p>
-              
+
               <div class="shader">
-                <span class="text-bold text-primary text-h6"> Basic Requirements</span>         
+                <span class="text-bold text-primary text-h6"> Basic Requirements</span>
                   <ul>
                     <li>English language fluency</li>
                     <li>Age 16+</li>
                     <li>WAEC O'Level Certification</li>
-                  </ul>                
+                  </ul>
               </div>
           </section>
 
@@ -28,8 +30,8 @@
             <q-btn no-caps outline to="#" class="q-mr-sm" color="primary" label="Learn More"/>
           </div>
         </div>
-      </div>        
-        
+      </div>
+
       <div class="col-xs-12 col-sm-7 col-md-7 q-pa-sm">
         <q-img
           src="images/cbt20.jpg"
@@ -38,7 +40,7 @@
           spinner-size="82px"
         />
       </div>
-    </div> 
+    </div>
 
     <div class="bg-warning">
       <div class="q-px-lg q-pt-md text-center">
@@ -56,9 +58,9 @@
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, 
-            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam 
-            quibusdam sequi, enim aperiam accusantium labore? Id ratione, 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam
+            quibusdam sequi, enim aperiam accusantium labore? Id ratione,
             veritatis dolor obcaecati exercitationem odit?
           </q-card-section>
         </q-card>
@@ -72,9 +74,9 @@
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, 
-            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam 
-            quibusdam sequi, enim aperiam accusantium labore? Id ratione, 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam
+            quibusdam sequi, enim aperiam accusantium labore? Id ratione,
             veritatis dolor obcaecati exercitationem odit?
           </q-card-section>
         </q-card>
@@ -88,9 +90,9 @@
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, 
-            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam 
-            quibusdam sequi, enim aperiam accusantium labore? Id ratione, 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+            odit quidem, dicta totam voluptatibus dolorum debitis laboriosam
+            quibusdam sequi, enim aperiam accusantium labore? Id ratione,
             veritatis dolor obcaecati exercitationem odit?
           </q-card-section>
         </q-card>
@@ -100,31 +102,37 @@
 </template>
 
 <script>
+import VideoJs from './../components/VideoJsRecord'
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components:{
+    VideoJs
+  }
 }
+
+
 </script>
 
 <style scoped>
-  .shade{  
+  .shade{
     text-align: center;
     padding: 10px;
     background-color: rgba(18, 19, 18, 0.562);
     border-radius: 15px 15px 15px 15px;
     margin-bottom: 5px;
     margin-right: 5px;
-    transition: 0.4s;   
-    margin: 15px; 
-  }  
-  .shader{  
+    transition: 0.4s;
+    margin: 15px;
+  }
+  .shader{
     color: white;
-    padding: 10px;    
+    padding: 10px;
     background-color: rgba(3, 109, 91, 0.562);
     border-radius: 0px 15px 0px 15px;
     margin-bottom: 5px;
     margin-right: 5px;
-    transition: 0.4s;       
-  } 
+    transition: 0.4s;
+  }
 
   .my-card{
     width: 100%;
