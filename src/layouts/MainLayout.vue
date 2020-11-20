@@ -1,8 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated v-if="$route.path !== '/testsheet'">
       <q-toolbar>
-
         <!-- <a href="/"><img src="images/logo.png" style=" max-width: 60px; padding-top: 5px;"></a> -->
 
         <q-toolbar-title class="text-white">
@@ -21,21 +20,22 @@
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
-        
+
         <q-btn no-caps flat class="gt-xs row" v-for="link in essentialLinks" :key="link.id" :to="link.to" exact clickable>
           <div class="column q-mr-md">
             <q-item-label>{{link.label}}</q-item-label>
           </div>
-        </q-btn>  
+        </q-btn>
+
 
       </q-toolbar>
     </q-header>
 
-    <q-footer>
+    <q-footer v-if="$route.path !== '/testsheet'">
       <div class="text-center bg-grey-10">
-        <div class="text-secondary">Palm CBT</div>        
-        <div class="text-grey-6">Copyright 2020</div>                        
-        <div class="text-grey-6">Greysoft Technologies</div>                        
+        <div class="text-secondary">Palm CBT</div>
+        <div class="text-grey-6">Copyright 2020</div>
+        <div class="text-grey-6">Greysoft Technologies</div>
       </div>
     </q-footer>
 
@@ -60,7 +60,7 @@
         </q-item>
 
       </q-list>
-    </q-drawer>   
+    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -74,7 +74,7 @@ export default {
 
   data () {
     return {
-      leftDrawerOpen: false,      
+      leftDrawerOpen: false,
 
       essentialLinks: [
         {
@@ -86,12 +86,12 @@ export default {
           label: 'Dashboard',
           icon: 'list',
           to: '/dashboard'
-        },   
+        },
         {
           label: 'My Account',
           icon: 'person',
           to: '/#'
-        },                      
+        },
         {
           label: 'About Us',
           icon: 'list',
@@ -102,7 +102,7 @@ export default {
           icon: 'phone',
           to: '/contact'
         },
-      ]      
+      ]
     }
   }
 }
@@ -134,7 +134,7 @@ export default {
 }
 
 a{
-    text-decoration: none;     
+    text-decoration: none;
 }
 
 </style>
