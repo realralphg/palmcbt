@@ -62,52 +62,59 @@
         </div>
 
         <!-- E X A M -->
-        <div class="row justify-center" v-if="finished">
-            <q-card class="my-cardd bg-teal q-pa-lg" flat bordered>
-                <q-card-section horizontal>
-                    <q-card-section class="q-pt-xs col-8">
-                    <!-- <div class="text-overline">Overline</div> -->
-                    <div class="row">
-                        <div class="text-h4 q-mt-sm q-mb-xs"> Mathematics Test </div>
-                        <q-space></q-space>
-                        <div class="text-bold">Time Left: 32 mins</div>
+        <div class="row justify-center" v-if="cbt">
+
+          <q-card class="my-cardd bg-teal q-pa-md" flat bordered >
+
+
+                  <q-card class="flat row">
+
+
+                    <div class="col-8">
+                      <q-card-section v-if="finished">
+                          <div >
+                              Thank for for taking this test
+                          </div>
+                      </q-card-section>
+
+                      <q-card-section class="q-pt-xs col-8" v-else>
+                          <!-- <div class="text-overline">Overline</div> -->
+                          <div class="row">
+                              <div class="text-h4 q-mt-sm q-mb-xs"> Mathematics Test </div>
+                              <q-space></q-space>
+                              <div class="text-bold">Time Left: 32 mins</div>
+                          </div>
+
+                          <div class="q-mt-lg text-h5 text-bold">Question: </div>
+                          <div class="text-h6">{{question.question}}</div>
+
+                          <div class="q-mt-lg text-h5 text-bold">Answer: </div>
+                          <q-item tag="label" v-ripple  v-for="answer in question.answers" :key="answer.id">
+                              <q-radio v-model="answer_selected" color="primary">{{answer.answer}}</q-radio>
+                          </q-item>
+                      </q-card-section>
                     </div>
-
-                    <div class="q-mt-lg text-h5 text-bold">Question: </div>
-                    <div class="text-h6">{{question.question}}</div>
-
-                    <div class="q-mt-lg text-h5 text-bold">Answer: </div>
-                    <q-item tag="label" v-ripple  v-for="answer in question.answers" :key="answer.id">
-                        <q-radio v-model="answer_selected" color="primary">{{answer.answer}}</q-radio>
-                    </q-item>
-
-                    <div style="float: right">
-                        <q-btn flat :label="button_text" icon="arrow_right" @click="selectQuestion"/>
-                    </div>
-
-                    </q-card-section>
 
                     <q-card-section class="col-4">
-                        <q-img class="rounded-borders" src="https://cdn.quasar.dev/img/parallax2.jpg"/>
+                        <!-- <q-img class="rounded-borders" src="https://cdn.quasar.dev/img/parallax2.jpg"/>
                         <div class="q-my-md">
                             Please DO NOT leave this screen. It would mean the end of your test.
-                        </div>
+                        </div> -->
                         <q-img class="rounded-borders" src="https://cdn.quasar.dev/img/parallax2.jpg"/>
                     </q-card-section>
-                </q-card-section>
 
                 <q-separator />
 
-                <q-card-actions>
-                    <q-btn flat>Quit!</q-btn>
+                <q-card-actions class="col-12">
+                     <q-btn flat :label="button_text" icon="arrow_right" @click="selectQuestion"/>
+                      <q-space />
+                      <q-btn flat>Quit!</q-btn>
                 </q-card-actions>
+
+              </q-card>
+
             </q-card>
         </div>
-
-        <!-- Dialogs -->
-        <!-- <q-dialog v-model="instruction">
-            <instruction/>
-        </q-dialog> -->
     </div>
 </template>
 
@@ -125,7 +132,8 @@
             questions_total: null,
             questions_index: null,
             button_text: 'NEXT >>',
-            finished: true,
+            cbt: false,
+            finished: false,
             terms: true,
         }
       },
@@ -152,7 +160,6 @@
         async getQuestion(){
           const res = await this.$axios.get(process.env.Api + '/api/question')
           this.questions = res.data.data
-        //   console.log(res.data.data)
         },
 
         selectQuestion(){
@@ -181,14 +188,13 @@
             this.$q.fullscreen.toggle()
             .then(() => {
               this.terms = false;
+              this.cbt = true;
             })
             .catch((err) => {
               alert(err)
               // uh, oh, error!!
               // console.error(err)
             })
-
-
         }
 
 
