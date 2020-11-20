@@ -28,6 +28,29 @@
         </q-btn>
 
 
+        <div v-if="!is_logedin">
+          <q-btn no-caps flat class="gt-xs row" to="/login" exact clickable >
+          <div class="column q-mr-md">
+            <q-item-label>Login</q-item-label>
+          </div>
+        </q-btn>
+
+        <q-btn no-caps flat class="gt-xs row" to="/signup" exact clickable>
+          <div class="column q-mr-md">
+            <q-item-label>Signup</q-item-label>
+          </div>
+        </q-btn>
+        </div>
+        <div v-else>
+            <q-btn no-caps flat class="gt-xs row" @click="logout()">
+              <div class="column q-mr-md">
+                <q-item-label>Logout</q-item-label>
+              </div>
+            </q-btn>
+        </div>
+
+
+
       </q-toolbar>
     </q-header>
 
@@ -87,11 +110,16 @@ export default {
           icon: 'list',
           to: '/dashboard'
         },
-        {
-          label: 'My Account',
-          icon: 'person',
-          to: '/#'
-        },
+        // {
+        //   label: 'Login',
+        //   icon: 'person',
+        //   to: '/login'
+        // },
+        // {
+        //   label: 'Signup',
+        //   icon: 'person',
+        //   to: '/signup'
+        // },
         {
           label: 'About Us',
           icon: 'list',
@@ -104,7 +132,21 @@ export default {
         },
       ]
     }
-  }
+  },
+
+
+  computed: {
+    is_logedin(){ return this.$q.localStorage.getItem('palmcbt_user') ? true : false}
+  },
+
+  methods: {
+    logout(){
+      this.$q.localStorage.set('palmcbt_user', '')
+      this.$router.push('/')
+      this.$router.go('/')
+    }
+  },
+
 }
 </script>
 

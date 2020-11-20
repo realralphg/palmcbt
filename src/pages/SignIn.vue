@@ -5,9 +5,8 @@
             Sign In Form
         </div>
       <form @submit.prevent="onSignIn">
-          <q-input v-model="email" name="email" label="Email"/>
-          <q-input v-model="password" type="password" name="password" label="Password" />
-
+          <q-input v-model="form.email" name="email" label="Email"/>
+          <q-input v-model="form.password" type="password" name="password" label="Password" />
         <q-space/>
         <div class="q-mt-sm row justify-right">
             <q-btn type="submit" no-caps color="primary" :disabled="!formIsValid"  >Sign In</q-btn>
@@ -24,8 +23,10 @@ export default {
 
   data () {
     return {
-      email: '',
-      password: ''
+      form:{
+        email: '',
+        password: ''
+      }
     }
   },
 
@@ -37,8 +38,11 @@ export default {
   },
 
   methods: {
-    onSignIn () {
-      this.$router.push("/profile")
+    async onSignIn () {
+      const res = await this.$axios.post(process.env.Api + '/api/login', this.form)
+      this.$q.localStorage.set('palmcbt_user', res.data.data)
+      this.$router.push('/dashboard')
+      // this.$router.go('/')
     }
   }
 

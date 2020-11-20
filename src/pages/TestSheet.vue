@@ -109,7 +109,7 @@
                 <q-card-actions class="col-12">
                      <q-btn flat :label="button_text" icon="arrow_right" @click="selectQuestion"/>
                       <q-space />
-                      <q-btn flat>Quit!</q-btn>
+                      <q-btn flat @click="quit()">Quit!</q-btn>
                 </q-card-actions>
 
               </q-card>
@@ -120,7 +120,6 @@
 </template>
 
 <script>
-    import { AppFullscreen } from 'quasar'
     import Instruction from '../components/Dialogs/Instruction'
 import VideoJs from './../components/VideoJsRecord'
 
@@ -147,21 +146,16 @@ import VideoJs from './../components/VideoJsRecord'
       async mounted(){
         await this.getQuestion();
         this.selectQuestion();
-
-        // Requesting fullscreen mode:
-        AppFullscreen.request()
-          .then(() => { // v1.5.0+
-            // success!
-          })
-          .catch(err => { // v1.5.0+
-            // oh, no!!!
-          })
       },
 
       methods: {
         async getQuestion(){
           const res = await this.$axios.get(process.env.Api + '/api/question')
           this.questions = res.data.data
+        },
+        quit(){
+          this.toggle();
+          this.$router.push('/dashboard')
         },
 
         selectQuestion(){
@@ -185,9 +179,12 @@ import VideoJs from './../components/VideoJsRecord'
            }
         },
 
-        toggle (e) {
-            const target = e.target.parentNode.parentNode.parentNode
+        toggle () {
+
+            // const target = e.target.parentNode.parentNode.parentNode
+
             this.$q.fullscreen.toggle()
+
             .then(() => {
               this.terms = false;
               this.cbt = true;

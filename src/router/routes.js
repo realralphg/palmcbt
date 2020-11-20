@@ -12,8 +12,8 @@ const routes = [
       { path: '/thankyou', component: () => import('pages/ThankYou.vue') },
       { path: '/account', component: () => import('pages/Account.vue') },
       { path: '/auth', component: () => import('pages/AuthPage.vue') },
-      { path: '/sign-in', component: () => import('pages/SignIn.vue') },
-      { path: '/sign-up', component: () => import('pages/SignUp.vue') }
+      { path: '/login', component: () => import('pages/SignIn.vue') },
+      { path: '/signup', component: () => import('pages/SignUp.vue') }
     ]
   },
 
