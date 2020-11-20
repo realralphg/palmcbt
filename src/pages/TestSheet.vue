@@ -51,10 +51,10 @@
                <q-separator inset />
               <q-card-section >
                   <q-btn
-                      color="secondary"
+                      color="success"
                       @click="toggle"
                       :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
-                      :label="$q.fullscreen.isActive ? 'Exit Fullscreen' : 'Go Fullscreen'"
+                      :label="$q.fullscreen.isActive ? 'Exit Test' : 'Agree Start Test'"
                     />
               </q-card-section>
 
@@ -101,7 +101,7 @@
                             Please DO NOT leave this screen. It would mean the end of your test.
                         </div> -->
                         <VideoJs></VideoJs>
-                        
+
                     </q-card-section>
 
                 <q-separator />
