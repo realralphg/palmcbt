@@ -100,7 +100,8 @@
                         <div class="q-my-md">
                             Please DO NOT leave this screen. It would mean the end of your test.
                         </div> -->
-                        <q-img class="rounded-borders" src="https://cdn.quasar.dev/img/parallax2.jpg"/>
+                        <VideoJs></VideoJs>
+                        
                     </q-card-section>
 
                 <q-separator />
@@ -121,6 +122,7 @@
 <script>
     import { AppFullscreen } from 'quasar'
     import Instruction from '../components/Dialogs/Instruction'
+import VideoJs from './../components/VideoJsRecord'
 
     export default {
       data(){
@@ -139,7 +141,7 @@
       },
 
       components:{
-        Instruction
+        Instruction, VideoJs
       },
 
       async mounted(){

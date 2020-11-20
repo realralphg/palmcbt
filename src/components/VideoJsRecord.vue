@@ -11,7 +11,7 @@
         </video>
         <div v-if="downloadLink">Download Link {{ downloadLink }}</div>
         <br>
-         <q-btn class="flat" text-color="black" label="you are been recorded to preent any possible froud" />
+         <!-- <q-btn class="flat" text-color="black" label="you are been recorded to preent any possible froud" /> -->
 
         <!-- <button type="button" class="btn btn-info" @click.prevent="startRecording()" v-bind:disabled="isStartRecording" id="btnStart">Start Recording</button>
         <button type="button" class="btn btn-success" @click.prevent="submitVideo()" v-bind:disabled="isSaveDisabled" id="btnSave">{{ submitText }}</button>
@@ -56,7 +56,7 @@ export default {
                         pip: false,
                         audio: true,
                         video: true,
-                        maxLength: 10,
+                        maxLength: 30,
                         debug: true
                     }
                 }
