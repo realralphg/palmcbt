@@ -5,7 +5,7 @@
         <span class="shade text-white text-center text-h4 q-pa-md">PROJECT One</span>
       </div> -->
 
-      <VideoJs></VideoJs>
+      <!-- <VideoJs></VideoJs> -->
 
 
       <div class="col-xs-12 col-sm-5 col-md-5">
