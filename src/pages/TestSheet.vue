@@ -2,7 +2,7 @@
     <div class="bg-grey-4 q-pa-md">
 
         <div class="q-pa-md">
-            <span class="text-h5">Welcome Chima,</span> <br>
+            <span class="text-h5">Welcome {{ 'Chima' }},</span> <br>
                 <p>THIS IS A DEMO - THIS IS A DEMO. <br>
             </p>
         </div>
@@ -90,7 +90,7 @@
 
                           <div class="q-mt-lg text-h5 text-bold">Answer: </div>
                           <q-item tag="label" v-ripple  v-for="answer in question.answers" :key="answer.id">
-                              <q-radio v-model="answer_selected" color="primary">{{answer.answer}}</q-radio>
+                              <q-radio v-model="answer.id" color="primary">{{answer.answer}}</q-radio>
                           </q-item>
                       </q-card-section>
                     </div>
