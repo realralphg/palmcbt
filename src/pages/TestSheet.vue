@@ -82,7 +82,7 @@
                           <div class="row">
                               <div class="text-h4 q-mt-sm q-mb-xs"> Mathematics Test </div>
                               <q-space></q-space>
-                              <div class="text-bold">Time Left: 32 mins</div>
+                              <div class="text-bold">Time Left: 60 mins</div>
                           </div>
 
                           <div class="q-mt-lg text-h5 text-bold">Question: </div>
